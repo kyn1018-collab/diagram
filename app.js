@@ -19,7 +19,7 @@ const ui = {
 let gameState = 'START'; // START, PLAYING, GAMEOVER
 let score = 0;
 let lives = 3;
-let speed = 3;
+let speed = 1.5;
 let lanes = [0, 0, 0]; // X positions of lanes
 let laneWidth = 0;
 let playerLane = 1; // 0: Left, 1: Middle, 2: Right
@@ -42,7 +42,7 @@ const SHAPES = [
         ctx.arc(10, -10, 10, -Math.PI/2, Math.PI/2);
         ctx.lineTo(-10, 0);
         ctx.lineWidth = 6;
-        ctx.strokeStyle = '#fff';
+        ctx.strokeStyle = '#f1c40f';
         ctx.stroke();
     },
     function drawTriangle(ctx) {
@@ -51,7 +51,7 @@ const SHAPES = [
         ctx.lineTo(15, 15);
         ctx.lineTo(-15, -15);
         ctx.closePath();
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = '#f1c40f';
         ctx.fill();
     },
     function drawF(ctx) {
@@ -63,7 +63,7 @@ const SHAPES = [
         ctx.moveTo(-10, 0);
         ctx.lineTo(5, 0);
         ctx.lineWidth = 6;
-        ctx.strokeStyle = '#fff';
+        ctx.strokeStyle = '#f1c40f';
         ctx.stroke();
     },
     function drawArrow(ctx) {
@@ -76,7 +76,7 @@ const SHAPES = [
         ctx.lineTo(5, 5);
         ctx.lineTo(-15, 5);
         ctx.closePath();
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = '#f1c40f';
         ctx.fill();
     }
 ];
@@ -120,7 +120,7 @@ function startGame() {
     gameState = 'PLAYING';
     score = 0;
     lives = 3;
-    speed = 3;
+    speed = 1.5;
     playerLane = 1;
     currentObstacle = null;
     
@@ -248,7 +248,7 @@ function gameLoop(time) {
             if (playerLane === currentObstacle.correctLane) {
                 // Correct
                 score += 10;
-                speed = Math.min(speed + 0.5, 15);
+                speed = Math.min(speed + 0.2, 8);
             } else {
                 // Wrong
                 lives--;
