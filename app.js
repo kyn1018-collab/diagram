@@ -78,6 +78,66 @@ const SHAPES = [
         ctx.closePath();
         ctx.fillStyle = '#f1c40f';
         ctx.fill();
+    },
+    function drawL(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(-10, -20);
+        ctx.lineTo(-10, 20);
+        ctx.lineTo(15, 20);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#f1c40f';
+        ctx.stroke();
+    },
+    function drawFlag(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(-10, -20);
+        ctx.lineTo(-10, 20);
+        ctx.moveTo(-10, -20);
+        ctx.lineTo(15, -10);
+        ctx.lineTo(-10, 0);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#f1c40f';
+        ctx.stroke();
+        ctx.fillStyle = '#f1c40f';
+        ctx.fill();
+    },
+    function drawZ(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(-15, -15);
+        ctx.lineTo(15, -15);
+        ctx.lineTo(-15, 15);
+        ctx.lineTo(15, 15);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#f1c40f';
+        ctx.stroke();
+    },
+    function drawNumber7(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(-10, -15);
+        ctx.lineTo(10, -15);
+        ctx.lineTo(-5, 15);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = '#f1c40f';
+        ctx.stroke();
+    },
+    function drawHouse(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(-15, 15);
+        ctx.lineTo(15, 15);
+        ctx.lineTo(15, -5);
+        ctx.lineTo(0, -15);
+        ctx.lineTo(-15, -5);
+        ctx.closePath();
+        ctx.fillStyle = '#f1c40f';
+        ctx.fill();
+        // 굴뚝 추가 (비대칭으로 만들기 위해)
+        ctx.beginPath();
+        ctx.moveTo(8, -10);
+        ctx.lineTo(8, -18);
+        ctx.lineTo(12, -18);
+        ctx.lineTo(12, -7);
+        ctx.fillStyle = '#f1c40f';
+        ctx.fill();
     }
 ];
 
