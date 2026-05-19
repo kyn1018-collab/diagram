@@ -146,10 +146,10 @@ const TRANSFORMS = [
     { name: '왼쪽으로 뒤집기', action: (c) => c.scale(-1, 1), visualId: 'flipX' },
     { name: '위쪽으로 뒤집기', action: (c) => c.scale(1, -1), visualId: 'flipY' },
     { name: '아래쪽으로 뒤집기', action: (c) => c.scale(1, -1), visualId: 'flipY' },
-    { name: '오른쪽으로 돌리기', action: (c) => c.rotate(Math.PI / 2), visualId: 'rot90' },
-    { name: '왼쪽으로 돌리기', action: (c) => c.rotate(-Math.PI / 2), visualId: 'rot270' },
-    { name: '아래쪽으로 돌리기', action: (c) => c.rotate(Math.PI), visualId: 'rot180' },
-    { name: '위쪽으로 돌리기', action: (c) => c.rotate(Math.PI * 2), visualId: 'rot360' }
+    { name: '시계 방향으로 90도 돌리기', action: (c) => c.rotate(Math.PI / 2), visualId: 'rot90' },
+    { name: '시계 반대 방향으로 90도 돌리기', action: (c) => c.rotate(-Math.PI / 2), visualId: 'rot270' },
+    { name: '시계 방향으로 180도 돌리기', action: (c) => c.rotate(Math.PI), visualId: 'rot180' },
+    { name: '시계 반대 방향으로 180도 돌리기', action: (c) => c.rotate(-Math.PI), visualId: 'rot180' }
 ];
 
 function resize() {
