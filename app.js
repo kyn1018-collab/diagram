@@ -142,11 +142,14 @@ const SHAPES = [
 ];
 
 const TRANSFORMS = [
-    { name: '오른쪽(왼쪽)으로 뒤집기', action: (c) => c.scale(-1, 1), isFlip: true },
-    { name: '위(아래)쪽으로 뒤집기', action: (c) => c.scale(1, -1), isFlip: true },
-    { name: '시계 방향으로 90도 돌리기', action: (c) => c.rotate(Math.PI / 2), isFlip: false },
-    { name: '반시계 방향으로 90도 돌리기', action: (c) => c.rotate(-Math.PI / 2), isFlip: false },
-    { name: '180도 돌리기', action: (c) => c.rotate(Math.PI), isFlip: false }
+    { name: '오른쪽으로 뒤집기', action: (c) => c.scale(-1, 1), visualId: 'flipX' },
+    { name: '왼쪽으로 뒤집기', action: (c) => c.scale(-1, 1), visualId: 'flipX' },
+    { name: '위쪽으로 뒤집기', action: (c) => c.scale(1, -1), visualId: 'flipY' },
+    { name: '아래쪽으로 뒤집기', action: (c) => c.scale(1, -1), visualId: 'flipY' },
+    { name: '오른쪽으로 돌리기', action: (c) => c.rotate(Math.PI / 2), visualId: 'rot90' },
+    { name: '왼쪽으로 돌리기', action: (c) => c.rotate(-Math.PI / 2), visualId: 'rot270' },
+    { name: '아래쪽으로 돌리기', action: (c) => c.rotate(Math.PI), visualId: 'rot180' },
+    { name: '위쪽으로 돌리기', action: (c) => c.rotate(Math.PI * 2), visualId: 'rot360' }
 ];
 
 function resize() {
@@ -223,19 +226,13 @@ function generateQuestion() {
         if (i === correctLane) {
             options.push(transform);
         } else {
-            // Pick a random wrong transform
+            // Pick a random wrong transform that is visually distinct
             let wrongTransform;
             do {
                 wrongTransform = TRANSFORMS[Math.floor(Math.random() * TRANSFORMS.length)];
-            } while (wrongTransform.name === transform.name);
+            } while (wrongTransform.visualId === transform.visualId || options.some(o => o && o.visualId === wrongTransform.visualId));
             
-            // To make it harder, if it's not a flip, we might add a fake flip
-            if(Math.random() > 0.5) {
-                options.push(wrongTransform);
-            } else {
-                // Return original shape or something else to act as a trap
-                options.push({ name: 'wrong', action: (c) => c.scale(1,1) }); 
-            }
+            options.push(wrongTransform);
         }
     }
     
