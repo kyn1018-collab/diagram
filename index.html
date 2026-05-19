@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>도형 레이싱: 변환을 찾아라!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- HUD -->
+        <div id="hud">
+            <div id="score-board">점수: <span id="score">0</span></div>
+            <div id="lives-board">❤️ <span id="lives">3</span></div>
+        </div>
+
+        <!-- Question Display -->
+        <div id="question-board" class="hidden">
+            <div id="question-text">오른쪽으로 뒤집기</div>
+            <canvas id="question-canvas" width="100" height="100"></canvas>
+        </div>
+
+        <!-- Main Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <h1>도형 레이싱</h1>
+            <p>제시된 도형을 알맞게 이동시킨 모양을 찾아 자동차를 조종하세요!</p>
+            <p class="instruction">화면의 왼쪽, 가운데, 오른쪽을 터치하여 이동!</p>
+            <button id="start-btn">게임 시작</button>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h1>게임 오버!</h1>
+            <p>최종 점수: <span id="final-score">0</span></p>
+            <button id="restart-btn">다시 하기</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
